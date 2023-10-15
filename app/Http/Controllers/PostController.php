@@ -32,6 +32,7 @@ class PostController extends Controller
 
             // eager loading
             // menggunakan with yang ada di Post model, bisa saja langsung dengan menggunakan with([..., ...])
+            
             'posts' => Post::latest()->filter(request(['search', 'category', 'author']))->paginate(7)->withQueryString()
             // filter dapat dari model post (scopeFilter)
         ]);

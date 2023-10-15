@@ -11,7 +11,15 @@
         <a href="/blog?category=  {{ $post->category->slug }}">{{ $post->category->nama }}</a>
       </p>
 
-      <img src="https://source.unsplash.com/1200x400?{{ $post->category->nama }}" class=" img-fluid " alt="{{ $post->category->nama }}">
+      @if ($post->image)
+      <div style="max-height: 350px; overflow:hidden">
+        <img src="{{ asset('storage/' . $post->image) }}" class=" img-fluid " alt="{{ $post->category->nama }}">
+      </div>
+        @else
+        <img src="https://source.unsplash.com/1200x400?{{ $post->category->nama }}" class=" img-fluid " alt="{{ $post->category->nama }}">
+      @endif
+
+      
 
       <article class="my-3 fs-5 ">
 
